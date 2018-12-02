@@ -1,0 +1,121 @@
+<h1>CreateTeacher</h1>
+
+
+<ul class="nav justify-content-center ">
+    <li class="nav-item menubar-left">
+        <h2>
+            <a class="nav-link active" href="#">Thông tin cá nhân</a>
+        </h2>
+
+    </li>
+    <li class="nav-item menubar-left">
+        <h2>
+            <a class="nav-link" href="#">Các lớp phụ trách</a>
+        </h2>
+
+    </li>
+    <li class="nav-item menubar-right menubar-left">
+        <h2>
+            <a class="nav-link" href="#">Kế hoạch giảng dạy</a>
+        </h2>
+
+    </li>
+
+</ul>
+<form method="POST" class="needs-validation">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label>First name</label>
+            <input name="TeFirstName" type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Last name</label>
+            <input name="TeLastName" type="text" class="form-control" placeholder="Last name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label> Username </label>
+            <div class="input-group">
+
+                <input name="TeUsername" type="text" class="form-control" placeholder="Username" aria-describedby="inputGroupPrepend">
+
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Ngày tháng năm sinh</label>
+            <input name="TeBDay" type="date" class="form-control">
+            <label>Mã số</label>
+            <input name="TeID" type="text" class="form-control">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Viện</label>
+                    <input name="TeClass" type="text" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Trình độ</label>
+                    <select name="TeLevel" id="inputState" class="form-control">
+                        <option>Giảng Viên</option>
+                        <option>Thạc Sĩ</option>
+                        <option selected>Tiến Sĩ</option>
+                        <option>phó Giáo Sư</option>
+                        <option>Giao Sư</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Ảnh nè</label>
+            <img src="https://via.placeholder.com/200x200" alt="..." class="img-thumbnail rounded mx-auto d-block">
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Các môn phụ trách giảng dạy</label>
+        <textarea name="TeTeach" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input name="TeEmail" type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input name="TePassWord" type="password" class="form-control" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label>Phường</label>
+            <input name="TeCity" type="text" class="form-control" placeholder="City">
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom04">Thành phố, Quận, Huyện</label>
+            <input name="TeState" type="text" class="form-control" placeholder="State">
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Tỉnh</label>
+            <input name="TeProvince" type="text" class="form-control" id="validationCustom05">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Địa chỉ</label>
+        <input name="TeAddress" type="text" class="form-control" id="inputAddress">
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Cập nhật</button>
+</form>

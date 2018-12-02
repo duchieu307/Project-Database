@@ -1,0 +1,75 @@
+.header-img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0 ;
+}
+.search-box{
+    min-height: 30px;
+    width: 340px;
+    position: relative;
+    float: right;
+}
+
+footer{
+    text-align: center;
+    background-color: #9c1010;
+    color: white;
+}
+span{
+    
+    position: relative;
+    line-height: 1.9;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    
+}
+span nav {
+    display: none ;
+  }
+  nav span a {
+    padding-left: 10px;
+  
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .vertical-menu {
+    display: none ;
+    position: absolute;
+
+    z-index: 1 ;
+  
+  }
+  .vertical-menu span{
+    background-color: lightgrey !important;
+    width: 200px ;
+    height: 40px;
+    line-height: 2.9;
+    vertical-align: middle;
+    display: block;
+    text-decoration: none;
+    float: left;
+  }
+  
+span:hover, span:hover a{
+    background-color: #9c1010;
+    color: white !important;
+}
+span:hover > nav {
+    display: block;
+    position: absolute;
+  }
+  .menu span:hover > .vertical-menul{
+	position: absolute;
+	display: block;
+}
+.menubar-left{
+    border-left: solid #17a2b8; 
+    
+}
+.menubar-right{
+    border-right: solid #17a2b8;
+}

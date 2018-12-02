@@ -1,0 +1,116 @@
+<h1>CreateStudent</h1>
+<ul class="nav justify-content-center ">
+    <li class="nav-item menubar-left">
+        <h2>
+            <a class="nav-link active" href="#">Thông tin cá nhân</a>
+        </h2>
+
+    </li>
+    <li class="nav-item menubar-left">
+        <h2>
+            <a class="nav-link" href="#">Bảng điểm</a>
+        </h2>
+
+    </li>
+    <li class="nav-item menubar-right menubar-left">
+        <h2>
+            <a class="nav-link" href="#">Kế hoạch học tập</a>
+        </h2>
+
+    </li>
+
+</ul>
+<h2>Thông tin cá nhân</h2>
+<form method="post" action="/createstudent" id="Stuform" name="Stuform" class="needs-validation">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label>First name</label>
+            <input name="StuFirstName" type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Last name</label>
+            <input name="StuLastName" type="text" class="form-control" placeholder="Last name">
+        </div>
+        <div class="col-md-4 mb-3">
+            <label> Username </label>
+            <div class="input-group">
+
+                <input name="StuUserName" type="text" class="form-control" placeholder="Username" aria-describedby="inputGroupPrepend">
+
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Ngày tháng năm sinh</label>
+            <input name="StuDoB" type="date" class="form-control">
+            <label>Mã số sinh viên</label>
+            <input name="StuID" type="number" class="form-control">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Lớp</label>
+                    <input name="StuClass" type="String" class="form-control" placeholder="Class">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Trình độ</label>
+                    <select name="StuLevel" id="inputState" class="form-control">
+                        <option>Năm 1</option>
+                        <option>Năm 2</option>
+                        <option selected>Năm 3</option>
+                        <option>Năm 4</option>
+                        <option>Năm 5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Ảnh nè</label>
+            <img src="https://via.placeholder.com/200x200" alt="..." class="img-thumbnail rounded mx-auto d-block">
+        </div>
+
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input name="StuEmail" type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input name="StuPassword" type="password" class="form-control" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label>Phường</label>
+            <input name="StuDistrict" type="text" class="form-control" id="validationCustom03" placeholder="City">
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom04">Thành phố, Quận, Huyện</label>
+            <input name="StuCity" type="text" class="form-control" id="validationCustom04" placeholder="State">
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Tỉnh</label>
+            <input name="StuProvince" type="text" class="form-control" id="validationCustom05">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Địa chỉ</label>
+        <input name="StuAddress" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                bố mày cam đoan là những điều tao khai là thật
+            </label>
+            <div class="invalid-feedback">
+                Chưa cam đoan kìa thằng loonf
+            </div>
+        </div>
+    </div>
+    <button id="button1" class="btn btn-primary" type="submit">Cập nhật</button>
+</form>

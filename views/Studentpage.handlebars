@@ -1,0 +1,127 @@
+<h1>StudentPage</h1>
+<ul class="nav justify-content-center ">
+    <li class="nav-item menubar-left">
+        <h2>
+            <a class="nav-link active" href="#">Thông tin cá nhân</a>
+        </h2>
+
+    </li>
+    <li class="nav-item menubar-left">
+        <h2>
+            <a class="nav-link" href="#">Bảng điểm</a>
+        </h2>
+
+    </li>
+    <li class="nav-item menubar-right menubar-left">
+        <h2>
+            <a class="nav-link" href="#">Kế hoạch học tập</a>
+        </h2>
+
+    </li>
+
+</ul>
+<h2>Thông tin cá nhân</h2>
+<form id="Stuform" name="Stuform" class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label>First name</label>
+            <input id="FirstName" name="FirstName" type="text" class="form-control" placeholder="First name" value="Hieu" readonly>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label>Last name</label>
+            <input type="text" class="form-control" placeholder="Last name" value="Vũ Hoàng Đức " readonly>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label> Username </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" value="duchieu307" aria-describedby="inputGroupPrepend" readonly>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Ngày tháng năm sinh</label>
+            <input type="date" name="bday" class="form-control" value="1998-07-30" readonly>
+            <label>Mã số sinh viên</label>
+            <input type="number" name="StudentID" class="form-control" value="20168199" readonly>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Lớp</label>
+                    <input type="String" class="form-control" value="LTU15" placeholder="Class" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Trình độ</label>
+                    <select id="inputState" class="form-control" disabled>
+                        <option>Năm 1</option>
+                        <option>Năm 2</option>
+                        <option selected>Năm 3</option>
+                        <option>Năm 4</option>
+                        <option>Năm 5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Ảnh nè</label>
+            <img src="https://via.placeholder.com/200x200" alt="..." class="img-thumbnail rounded mx-auto d-block">
+        </div>
+
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" value="duchieu307@gmail.com" placeholder="Email" readonly>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" value="123456" placeholder="Password" readonly>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label>Phường</label>
+            <input type="text" class="form-control" id="validationCustom03" value="Phương Liệt" placeholder="City" readonly>
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom04">Thành phố, Quận, Huyện</label>
+            <input type="text" class="form-control" id="validationCustom04" value="Thanh Xuân" placeholder="State" readonly>
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Tỉnh</label>
+            <input type="text" class="form-control" id="validationCustom05" value="thành phố Hà Nội" readonly>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Địa chỉ</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value="số nhà 10, ngõ 377, Giải Phóng"
+            readonly>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <button id="button1" class="btn btn-primary" type="submit">Cập nhật</button>
+</form>
+<script>
+    $(document).ready(function () {
+        var myVar = $("#Stuform").focus();
+        $("#button1").click(function () {
+            alert(myVar);
+        });
+    });
+</script> {{!-- đã lấy được giá trị trong các ô ra giờ làm thế nào để đưa nó vào 1 object xong ném vào MongoDB --}}
