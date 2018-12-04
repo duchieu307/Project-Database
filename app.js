@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 
 let app = express();
 const homeRouter = require("./routers/homeRouter");
-const StudentRouter = require("./routers/StudentRouter");
 const TeacherRouter = require("./routers/TeacherRouter");
 const CreateStudent = require("./routers/StudentUpdateRouter")
 const CreateSubject = require("./routers/CreateSubject")
@@ -22,6 +21,9 @@ const CreateClassBelongs = require("./routers/CreateClassBelongs")
 const CreateStuBelongs = require("./routers/CreateStuBelongs")
 const AllStudent = require("./routers/AllStudent")
 const AllTeacher = require("./routers/AllTeacher")
+const StudentPage = require("./routers/StudentInfo")
+const UpdateStudentInfo = require("./routers/UpdateStudentInfo")
+const SubjectData = require("./routers/SubjectData")
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -29,7 +31,6 @@ app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use("/", homeRouter);
-app.use("/", StudentRouter);
 app.use("/", TeacherRouter);
 app.use("/", CreateStudent)
 app.use("/", CreateSubject)
@@ -45,6 +46,9 @@ app.use('/', CreateClassBelongs)
 app.use('/', CreateStuBelongs)
 app.use("/", AllStudent)
 app.use("/", AllTeacher)
+app.use("/", StudentPage)
+app.use("/", UpdateStudentInfo)
+app.use('/', SubjectData)
 
 app.use(express.static("public"));
 

@@ -154,6 +154,59 @@ let findAllTeacher = (callback) => {
     }
 }
 
+let testFunction = (callback) => {
+    StuSchema.StudentInfo.find({})
+        .limit(2)
+        .exec((err, docs) => {
+            if (err) console.log(err)
+            return callback(null, docs)
+        })
+}
+
+let findStudentByID = (StudentID, callback) => {
+    try {
+        StuSchema.StudentInfo.find({ StuStudentID: StudentID }, (err, docs) => {
+            callback(err, docs)
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+let findStudentByIDandUpdate = (FirstName, LastName, UserName, DoB, StudentID, newStudentID, Class, Email, District, City, Province, Address) => {
+    StuSchema.StudentInfo.find({ StuStudentID: StudentID }, (err, data) => {
+        console.log(data)
+        data[0].StuFirstName = FirstName;
+        data[0].StuLastName = LastName;
+        data[0].StuUserName = UserName;
+        data[0].StuDoB = DoB;
+        data[0].StudentID = newStudentID;
+        data[0].Class = Class;
+        data[0].Email = Email;
+        data[0].District = District;
+        data[0].City = City;
+        data[0].Province = Province;
+        data[0].save((err) => {
+            if (err) console.log(err)
+            console.log("Updated")
+        })
+    })
+}
+
+let getSubjectData = (SubID, callback) => {
+    StuSchema.Subject.find({ SubID: SubID }, ['SubName', 'Room'])
+        .populate('StudentStudyStatus', ["StuStudentID", 'Mid_termScore', 'Final_termScore', 'AverageScore'])
+        .populate('StudentInfo', ['StuFirstName', "StuLastName"])
+        .populate("TeachStatus", ["TeID"])
+        .populate("Teacher", ["TeFirstName", 'TeLastName'])
+        .exec((err, docs) => {
+            if (err) console.log(err)
+            console.log(docs)
+            return callback(null, docs)
+        })
+}
+
+
 
 module.exports = {
     createStu,
@@ -169,5 +222,9 @@ module.exports = {
     createClassBelongs,
     createStuBelongs,
     findAllStudent,
-    findAllTeacher
+    findAllTeacher,
+    testFunction,
+    findStudentByID,
+    findStudentByIDandUpdate,
+    getSubjectData
 }
