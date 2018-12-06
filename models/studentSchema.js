@@ -30,9 +30,10 @@ const StudentStudyStatusSchema = {
     Mid_termScore: { type: Number, require: true },
     Final_termScore: { type: Number, require: true },
     AverageScore: { type: Number, require: true },
+    ScoreID: { type: String, require: true },
+    Stu_id: { type: mongoose.Schema.Types.ObjectId, ref: "StudentInfo", require: true }
 
-    StuStudentID: { type: mongoose.Schema.Types.Number, ref: "StudentInfo" },
-    SubID: { type: mongoose.Schema.Types.String, ref: "Subject" }
+
     //link den cai nao thi phai chung kieu du lieu toi cai minh link
 }
 
@@ -44,7 +45,10 @@ const SubjectSchema = {
     SubID: { type: String, require: true },
     SubName: { type: String, require: true },
     SubCredits: { type: String, require: true },
-    SubCreditsDetails: { type: String, require: true }
+    SubCreditsDetails: { type: String, require: true },
+    StudentsInClass: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus" }],
+    TeacherInClass: { type: mongoose.Schema.Types.ObjectId, ref: "TeachStatus" }
+    // SSSID: { type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus", require: true }
 }
 
 
@@ -69,9 +73,8 @@ const TeacherSchema = {
 
 const TeachStatusSchema = {
     TeRoom: { type: String, require: true },
-    TeID: { type: mongoose.Schema.Types.String, ref: 'Teacher' },
-    SubID: { type: mongoose.Schema.Types.String, ref: "Subject" }
-
+    Teacher_id: { type: mongoose.Schema.Types.ObjectId, ref: "Teacher" },
+    TeachID: { type: String, require: true }
 }
 
 

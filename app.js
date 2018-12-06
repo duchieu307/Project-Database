@@ -4,6 +4,11 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
 
+mongoose.connect('mongodb://localhost/projectdatabase', (err) => {
+    if (err) console.log(err);
+    console.log("Database connected")
+});
+
 let app = express();
 const homeRouter = require("./routers/homeRouter");
 const TeacherRouter = require("./routers/TeacherRouter");
@@ -52,10 +57,7 @@ app.use('/', SubjectData)
 
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://localhost/projectdatabase', (err) => {
-    if (err) console.log(err);
-    console.log("Database connected")
-});
+
 
 app.listen(5000, (err) => {
     if (err) { console.log(err) };

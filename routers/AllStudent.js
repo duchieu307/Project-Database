@@ -9,6 +9,7 @@ Router.get("/allstudent", (req, res) => {
             if (err) console.log(err)
             else {
                 let Arr = docs;
+                console.log(docs)
                 let listElem = Arr.map((item, index) => `
                 <tr>
                     <th scope="row">${index + 1}</th>

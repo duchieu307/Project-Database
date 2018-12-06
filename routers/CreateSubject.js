@@ -15,7 +15,8 @@ Router.post("/createsubject", (req, res) => {
         let SubName = req.body.SubName;
         let SubCredits = req.body.SubCredits;
         let SubCreditsDetails = req.body.SubCreditsDetails
-        FileController.createSub(Room, StartTime, EndTime, SubID, SubName, SubCredits, SubCreditsDetails)
+        let StudentsInClass = req.body.StudentsInClass
+        FileController.createSub(Room, StartTime, EndTime, SubID, SubName, SubCredits, SubCreditsDetails, StudentsInClass)
 
     } catch (error) {
         console.log(error)
