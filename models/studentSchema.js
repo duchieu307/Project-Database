@@ -47,7 +47,7 @@ const SubjectSchema = {
     SubCredits: { type: String, require: true },
     SubCreditsDetails: { type: String, require: true },
     StudentsInClass: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus" }],
-    TeacherInClass: { type: mongoose.Schema.Types.ObjectId, ref: "TeachStatus" }
+    TeacherInClass: { type: mongoose.Schema.Types.ObjectId, ref: "TeachStatusSchema" }
     // SSSID: { type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus", require: true }
 }
 
@@ -73,7 +73,7 @@ const TeacherSchema = {
 
 const TeachStatusSchema = {
     TeRoom: { type: String, require: true },
-    Teacher_id: { type: mongoose.Schema.Types.ObjectId, ref: "Teacher" },
+    Teacher_id: { type: mongoose.Schema.Types.ObjectId, ref: "TeacherSchema" },
     TeachID: { type: String, require: true }
 }
 
@@ -88,7 +88,7 @@ const IntitutionSchema = {
 
 
 const TeBelongsSchema = {
-    TeID: { type: mongoose.Schema.Types.String, ref: 'Teacher' },
+    TeID: { type: mongoose.Schema.Types.String, ref: 'TeacherSchema' },
     InID: { type: mongoose.Schema.Types.String, ref: "Intitution" }
 }
 
@@ -122,6 +122,8 @@ var StuBelongsSchema = {
 
 }
 
+
+// NÓ REF TỚI CÁI TÊN CỦA BẢNG LÀ CÁI STRING VÀNG VÀNG KIA KÌA
 var StudentInfo = mongoose.model("StudentInfo", studentSchema)
 var StudentStudyStatus = mongoose.model("StudentStudyStatus", StudentStudyStatusSchema)
 var Subject = mongoose.model("SubjectSchema", SubjectSchema)

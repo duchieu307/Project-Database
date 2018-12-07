@@ -215,13 +215,13 @@ let getSubjectData = (SubID, callback) => {
         })
 }
 
-let getTeacherInSubject = (TeachID, callback) => {
-    StuSchema.Subject.find({ TeacherInClass: TeachID }, 'TeacherInClass')
+let getTeacherInSubject = async function (TeachID, callback) {
+    await StuSchema.Subject.find({ TeacherInClass: TeachID }, 'TeacherInClass')
         .populate({
             path: "TeacherInClass", select: "Teacher_id",
             populate: {
                 path: "Teacher_id", select: ["TeFirstName", "TeLastName"],
-                model: "Teacher"
+                model: "TeacherSchema"
             }
         })
         .exec((err, docs) => {

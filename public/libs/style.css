@@ -73,3 +73,7 @@ span:hover > nav {
 .menubar-right{
     border-right: solid #17a2b8;
 }
+.dropdown-button.show {
+    position: absolute !important;
+    display: contents !important;
+}

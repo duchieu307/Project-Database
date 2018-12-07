@@ -44,7 +44,7 @@ Router.get("/subject/:id", (req, res) => {
             `)
         // res.send(item)
         await FileController.getTeacherInSubject(TeachID, async function (err, data) {
-            let Vuong = data
+            let Vuong = data[0].TeacherInClass.Teacher_id.TeFirstName
             console.log(Vuong)
             await res.render("SubjectData", {
                 Teacher: Vuong,
