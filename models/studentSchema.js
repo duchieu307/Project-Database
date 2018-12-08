@@ -58,7 +58,7 @@ const TeacherSchema = {
     TeUserName: { type: String, require: true },
     TeBDay: { type: String, require: true },
     TeID: { type: String, require: true },
-    TeClass: { type: String, require: true },
+    TeIntitution: { type: String, require: true },
     TeLevel: { type: String, require: true },
     TeIMG: { type: String },
     TeTeach: { type: String, require: true },
@@ -84,43 +84,36 @@ const IntitutionSchema = {
     InOffice: { type: String, require: true },
     InEmail: { type: String, require: true },
     InPhone: { type: Number, require: true },
+    TeacherInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "TeBelongs" }],
+    SubjectInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "SubjectSchema" }],
+    EduInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "EduBelongs" }]
 }
 
 
-const TeBelongsSchema = {
-    TeID: { type: mongoose.Schema.Types.String, ref: 'TeacherSchema' },
-    InID: { type: mongoose.Schema.Types.String, ref: "Intitution" }
-}
+
 
 
 const EduProgramsSchema = {
     EduName: { type: String, require: true },
-    EduID: { type: String, require: true }
+    EduID: { type: String, require: true },
+    ClassInEdu: [{ type: mongoose.Schema.Types.ObjectId, ref: "Class" }]
 }
 
 
-const EduBelongsSchema = {
-    InID: { type: mongoose.Schema.Types.String, ref: "Intitution" },
-    EduID: { type: mongoose.Schema.Types.String, ref: "EduPrograms" }
-}
+
 
 
 const ClassSchema = {
-    ClaName: { type: String, require: true }
+    ClaName: { type: String, require: true },
+    StudentsInClass: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentInfo" }],
+    MonitorID: { type: mongoose.Schema.Types.ObjectId, ref: "StudentInfo" }
 }
 
 
-const ClassBelongsSchema = {
-    ClaName: { type: mongoose.Schema.Types.String, ref: "Class" },
-    EduID: { type: mongoose.Schema.Types.String, ref: "EduPrograms" }
-}
 
 
-var StuBelongsSchema = {
-    ClaName: { type: mongoose.Schema.Types.String, ref: "Class" },
-    StuID: { type: mongoose.Schema.Types.Number, ref: "StudentInfo" }
 
-}
+
 
 
 // NÓ REF TỚI CÁI TÊN CỦA BẢNG LÀ CÁI STRING VÀNG VÀNG KIA KÌA
@@ -130,12 +123,8 @@ var Subject = mongoose.model("SubjectSchema", SubjectSchema)
 var Teacher = mongoose.model("TeacherSchema", TeacherSchema)
 var TeachStatus = mongoose.model("TeachStatusSchema", TeachStatusSchema)
 var Intitution = mongoose.model("IntitutionSchema", IntitutionSchema)
-var TeBelongs = mongoose.model("TeBelongs", TeBelongsSchema)
 var EduPrograms = mongoose.model("EduPrograms", EduProgramsSchema)
-var EduBelongs = mongoose.model("EduBelongs", EduBelongsSchema)
 var Class = mongoose.model("Class", ClassSchema)
-var ClassBelongs = mongoose.model("ClassBelongs", ClassBelongsSchema)
-var StuBelongs = mongoose.model("StuBelongs", StuBelongsSchema)
 
 module.exports = {
     StudentInfo: StudentInfo,
@@ -144,10 +133,7 @@ module.exports = {
     Teacher: Teacher,
     TeachStatus: TeachStatus,
     Intitution: Intitution,
-    TeBelongs: TeBelongs,
     EduPrograms: EduPrograms,
-    EduBelongs: EduBelongs,
     Class: Class,
-    ClassBelongs: ClassBelongs,
-    StuBelongs: StuBelongs
+
 }

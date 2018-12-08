@@ -9,40 +9,40 @@ Router.get("/allstudent", (req, res) => {
             if (err) console.log(err)
             else {
                 let Arr = docs;
-                console.log(docs)
+                // console.log(docs)
                 let listElem = Arr.map((item, index) => `
                 <tr>
                     <th scope="row">${index + 1}</th>
                     <td>
-                        <a href="">${item.StuFirstName}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuFirstName}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuLastName}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuLastName}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuUserName}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuUserName}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuEmail}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuEmail}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuDoB}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuDoB}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuStudentID}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuStudentID}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuClass}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuClass}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuLevel}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuLevel}</a>
                     </td>
                     
                     <td>
-                        <a href="">${item.StuCity}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuCity}</a>
                     </td>
                     <td>
-                        <a href="">${item.StuProvince}</a>
+                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuProvince}</a>
                     </td>
 
 

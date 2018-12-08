@@ -1,52 +1,88 @@
 <h2>
     Hien tat ca hoc sinh</h2>
 
+<h1>Thêm all subject, info giáo viên(update giáo viên), info môn học, bảng điểm học sinh, các đường dẫn quản lý còn lại</h1>
+
+<h1>tập chung chủ yếu vào điểm học sinh, môn học, giáo viên giảng dạy</h1>
+
 <div class="row">
     <div class="col-md-4">
         <div class="dropdown" style="display:grid">
             <button class="btn  btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                Dropdown button
+                Tạo Dữ Liệu
             </button>
             <div class="dropdown-menu dropdown-button " aria-labelledby="dropdownMenuButton">
                 <h3 class="h3">
                     <strong>
-                        <a class="dropdown-item" href="http://localhost:5000/createstudent">Thêm thông tin học sinh</a>
+                        <a class="dropdown-item" href="http://localhost:5000/createstudent">Tạo thông tin học sinh</a>
                     </strong>
                 </h3>
                 <h3 class="h3">
                     <strong>
-                        <a class="dropdown-item" href="#">Thêm điểm cho học sinh</a>
+                        <a class="dropdown-item" href="http://localhost:5000/createscore">Tạo điểm cho học sinh</a>
                     </strong>
                 </h3>
                 <h3 class="h3">
                     <strong>
-                        <a class="dropdown-item" href="#">Thêm thông tin giáo viên</a>
+                        <a class="dropdown-item" href="http://localhost:5000/createteacher">Tạo thông tin giáo viên</a>
                     </strong>
                 </h3>
                 <h3 class="h3">
                     <strong>
-                        <a class="dropdown-item" href="#">Phân công giảng dạy</a>
+                        <a class="dropdown-item" href="http://localhost:5000/createteach">Phân công giảng dạy</a>
                     </strong>
                 </h3>
                 <h3 class="h3">
                     <strong>
-                        <a class="dropdown-item" href="#">Thêm môn học</a>
+                        <a class="dropdown-item" href="http://localhost:5000/createsubject">Tạo môn học</a>
+                    </strong>
+                </h3>
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="http://localhost:5000/createclass">Tạo lớp</a>
                     </strong>
                 </h3>
             </div>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="dropdown">
-            <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        <div class="dropdown" style="display:grid">
+            <button class="btn  btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                Dropdown button
+                Dữ Liệu Hiện Có
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-menu dropdown-button " aria-labelledby="dropdownMenuButton">
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="http://localhost:5000/allstudent">Danh sách học sinh</a>
+                    </strong>
+                </h3>
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="http://localhost:5000/allteacher">Danh sách giảng viên</a>
+                    </strong>
+                </h3>
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="http://localhost:5000/createteacher">Thêm thông tin giáo viên</a>
+                    </strong>
+                </h3>
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="http://localhost:5000/createteach">Phân công giảng dạy</a>
+                    </strong>
+                </h3>
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="http://localhost:5000/createsubject">Thêm môn học</a>
+                    </strong>
+                </h3>
+                <h3 class="h3">
+                    <strong>
+                        <a class="dropdown-item" href="#">Thêm lớp</a>
+                    </strong>
+                </h3>
             </div>
         </div>
     </div>

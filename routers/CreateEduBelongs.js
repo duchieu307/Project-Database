@@ -9,7 +9,11 @@ Router.get("/createedubelongs", (req, res) => {
 Router.post("/createedubelongs", (req, res) => {
     let InID = req.body.InID;
     let EduID = req.body.EduID;
-    FileController.createEduBelongs(InID, EduID)
+    FileController.findEduByID(EduID, (err, docs) => {
+        let EduObjectID = docs[0]._id;
+        FileController.pushEduToIntitution(InID, EduObjectID)
+        res.send("Updated")
+    })
 })
 
 module.exports = Router

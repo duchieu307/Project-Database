@@ -50,14 +50,14 @@ let createScore = async function (Mid_termScore, Final_termScore, Stu_id, ScoreI
 
 }
 
-const createTeacher = (TeFirstName, TeLastName, TeUserName, TeBDay, TeID, TeClass, TeLevel, TeIMG, TeTeach, TeEmail, TePassword, TeCity, TeState, TeProvince, TeAddress) => {
+const createTeacher = (TeFirstName, TeLastName, TeUserName, TeBDay, TeID, TeIntitution, TeLevel, TeIMG, TeTeach, TeEmail, TePassword, TeCity, TeState, TeProvince, TeAddress) => {
     let newTeacher = {
         TeFirstName: TeFirstName,
         TeLastName: TeLastName,
         TeUserName: TeUserName,
         TeBDay: TeBDay,
         TeID: TeID,
-        TeClass: TeClass,
+        TeIntituiton: TeIntituiton,
         TeLevel: TeLevel,
         TeIMG: TeIMG,
         TeTeach: TeTeach,
@@ -83,7 +83,7 @@ let createTeach = async function (TeRoom, Teacher_id, TeachID) {
 let createIntitution = (InName, InID, InOffice, InEmail, InPhone) => {
     let newIntitution = {
         InName: InName,
-        InId: InID,
+        InID: InID,
         InOffice: InOffice,
         InEmail: InEmail,
         InPhone: InPhone
@@ -115,9 +115,10 @@ let createEduBelongs = (InID, EduID) => {
     StuSchema.EduBelongs.create(newEduBelongs)
 }
 
-let createClass = (ClaName) => {
+let createClass = (ClaName, MonitorObjectID) => {
     let newClass = {
-        ClaName: ClaName
+        ClaName: ClaName,
+        MonitorID: MonitorObjectID
     }
     StuSchema.Class.create(newClass)
 }
@@ -177,6 +178,7 @@ let findStudentByID = async function (StudentID, callback) {
         console.log(error)
     }
 }
+
 
 let findStudentByIDandUpdate = (FirstName, LastName, UserName, DoB, StudentID, newStudentID, Class, Email, District, City, Province, Address) => {
     StuSchema.StudentInfo.find({ StuStudentID: StudentID }, (err, data) => {
@@ -261,6 +263,53 @@ let pushTeacherToSubject = function (SubID, TeacherObjectID) {
     console.log("Updated")
 }
 
+let pushTeacherToIntitution = (InID, TeacherObjectID) => {
+    StuSchema.Intitution.findOneAndUpdate({ InID: InID }, {
+        $push: { TeacherInIntitution: TeacherObjectID }
+    }, {
+            new: true
+        }, (err, doc) => {
+            if (err) console.log(err)
+        })
+    console.log("Update Teacher to Intitution")
+}
+
+let pushEduToIntitution = (InID, EduObjectID) => {
+    StuSchema.Intitution.findOneAndUpdate({ InID: InID }, {
+        $push: { EduInIntitution: EduObjectID }
+    }, (err, doc) => {
+        if (err) console.log(err)
+    })
+    console.log("Update EduProgram to Intitution")
+}
+
+let pushSubjectToIntitution = (InID, SubObjectID) => {
+    StuSchema.Intitution.findOneAndUpdate({ InID: InID }, {
+        $push: { SubjectInIntitution: SubObjectID }
+    }, (err, doc) => {
+        if (err) console.log(err)
+    })
+    console.log("Update Subject to Intitution")
+}
+
+let pushStudentToClass = (ClaName, Stu_id) => {
+    StuSchema.Class.findOneAndUpdate({ ClaName: ClaName }, {
+        $push: { StudentsInClass: Stu_id }
+    }, (err, docs) => {
+        if (err) console.log(err)
+    })
+    console.log("Update Student to class")
+}
+
+let pushClasstoEdu = (EduID, ClassObjectID) => {
+    StuSchema.EduPrograms.findOneAndUpdate({ EduID: EduID }, {
+        $push: { ClassInEdu: ClassObjectID }
+    }, (err, docs) => {
+        if (err) console.log(err)
+    })
+    console.log("Update Class to Edu ")
+}
+
 let findScoreObjectID = async function (ScoreID, callback) {
     try {
         await StuSchema.StudentStudyStatus.find({ ScoreID: ScoreID }, (err, docs) => {
@@ -281,6 +330,16 @@ let findTeacherByID = async function (TeID, callback) {
     }
 }
 
+let findEduByID = async function (EduID, callback) {
+    try {
+        await StuSchema.EduPrograms.find({ EduID: EduID }, (err, docs) => {
+            callback(err, docs)
+        })
+    } catch (error) {
+        if (error) console.log(error)
+    }
+}
+
 let findTeachObjectID = async function (TeachID, callback) {
     try {
         await StuSchema.TeachStatus.find({ TeachID: TeachID }, (err, docs) => {
@@ -290,6 +349,24 @@ let findTeachObjectID = async function (TeachID, callback) {
         if (error) console.log(error)
     }
 }
+
+let findSubject = async function (SubID, callback) {
+    try {
+        await StuSchema.Subject.find({ SubID: SubID }, (err, docs) => {
+            callback(err, docs)
+        })
+    } catch (error) {
+        if (error) console.log(error)
+    }
+}
+
+let findClass = (ClaName, callback) => {
+    StuSchema.Class.find({ ClaName: ClaName }, (err, docs) => {
+        callback(err, docs)
+    })
+}
+
+
 
 
 module.exports = {
@@ -316,5 +393,13 @@ module.exports = {
     findTeacherByID,
     findTeachObjectID,
     pushTeacherToSubject,
-    getTeacherInSubject
+    getTeacherInSubject,
+    pushTeacherToIntitution,
+    pushEduToIntitution,
+    findEduByID,
+    findSubject,
+    pushSubjectToIntitution,
+    pushStudentToClass,
+    findClass,
+    pushClasstoEdu
 }

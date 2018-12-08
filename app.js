@@ -29,6 +29,8 @@ const AllTeacher = require("./routers/AllTeacher")
 const StudentPage = require("./routers/StudentInfo")
 const UpdateStudentInfo = require("./routers/UpdateStudentInfo")
 const SubjectData = require("./routers/SubjectData")
+const SubjectBelongs = require("./routers/CreateSubjectBelongs")
+const AddStudent = require("./routers/AddStudent")
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -54,6 +56,8 @@ app.use("/", AllTeacher)
 app.use("/", StudentPage)
 app.use("/", UpdateStudentInfo)
 app.use('/', SubjectData)
+app.use("/", SubjectBelongs)
+app.use("/", AddStudent)
 
 app.use(express.static("public"));
 

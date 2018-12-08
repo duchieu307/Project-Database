@@ -13,5 +13,6 @@ Router.post("/createintitution", (req, res) => {
     let InEmail = req.body.InEmail;
     let InPhone = req.body.InPhone;
     FileController.createIntitution(InName, InID, InOffice, InEmail, InPhone)
+    res.redirect("homepage")
 })
 module.exports = Router

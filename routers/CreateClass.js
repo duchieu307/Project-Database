@@ -9,7 +9,13 @@ Router.get("/createclass", (req, res) => {
 
 Router.post("/createclass", (req, res) => {
     let ClaName = req.body.ClaName
-    FileController.createClass(ClaName)
+    let StuID = req.body.StuID
+    let MonitorID = req.body.MonitorID
+    FileController.findStudentByID(MonitorID, (err, docs) => {
+        let MonitorObjectID = docs[0]._id
+        FileController.createClass(ClaName, MonitorObjectID)
+
+    })
 })
 
 module.exports = Router
