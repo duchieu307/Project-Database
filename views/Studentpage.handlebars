@@ -2,22 +2,23 @@
 <ul class="nav justify-content-center ">
     <li class="nav-item menubar-left">
         <h2>
-            <a class="nav-link active" href="#">Thông tin cá nhân</a>
+            <a class="nav-link active" href="http://localhost:5000/{{StudentID}}/info">Thông tin cá nhân</a>
         </h2>
 
     </li>
-    <li class="nav-item menubar-left">
+    <li class="nav-item menubar-left menubar-right">
         <h2>
-            <a class="nav-link" href="#">Bảng điểm</a>
+            <a class="nav-link" href="http://localhost:5000/{{StudentID}}/info/score">Bảng điểm</a>
         </h2>
 
     </li>
+    {{!--
     <li class="nav-item menubar-right menubar-left">
         <h2>
             <a class="nav-link" href="#">Kế hoạch học tập</a>
         </h2>
 
-    </li>
+    </li> --}}
 
 </ul>
 <h2>Thông tin cá nhân</h2>
@@ -103,13 +104,11 @@
         <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value="{{Address}}" readonly>
     </div>
 
-    <button id="button1" class="btn btn-primary" type="submit">Cập nhật</button>
+    <a class="btn btn-primary" href="http://localhost:5000/{{StudentID}}/info/update">
+
+        Cập nhật
+
+    </a>
 </form>
-<script>
-    $(document).ready(function () {
-        var myVar = $("#Stuform").focus();
-        $("#button1").click(function () {
-            alert(myVar);
-        });
-    });
-</script> {{!-- đã lấy được giá trị trong các ô ra giờ làm thế nào để đưa nó vào 1 object xong ném vào MongoDB --}}
+
+{{!-- đã lấy được giá trị trong các ô ra giờ làm thế nào để đưa nó vào 1 object xong ném vào MongoDB --}}

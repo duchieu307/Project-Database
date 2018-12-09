@@ -27,7 +27,7 @@ Router.get("/allteacher", (req, res) => {
                         <a href="">${item.TeID}</a>
                     </td>
                     <td>
-                        <a href="">${item.TeClass}</a>
+                        <a href="">${item.TeIntitution}</a>
                     </td>
                     <td>
                         <a href="">${item.TeLevel}</a>

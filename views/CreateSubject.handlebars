@@ -1,13 +1,49 @@
-<h1>CreateSubject</h1>
+<h1>Tạo môn học</h1>
 
-<form method="POST" action="/createsubject">
-    <input placeholder="room" type="text" name="Room" id="">
-    <input placeholder="starttime" type="date" name="starttime" id="">
-    <input type="date" name="endtime" placeholder="endtime">
-    <input type="text" name="SubID" placeholder="SubID">
-    <input type="text" name="SubName" placeholder="SubName">
-    <input type="text" name="SubCredits" placeholder="SubCredits" id="">
-    <input type="text" name="SubCreditsDetails" placeholder="SubCreditsDetails">
-    <input type="text" name="StudentsInClass" placeholder="SubName">
-    <button type="submit">Gui</button>
+
+<form method="POST">
+    <div class="form-group">
+        <label>Tên môn học</label>
+        <input name="SubName" type="text" class="form-control" placeholder="Subject-Name">
+    </div>
+    <div class="form-group">
+        <label>Mã môn học</label>
+        <input name="SubID" type="text" class="form-control" placeholder="Subject-ID">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Thời gian bắt đầu</label>
+            <input name="starttime" type="date" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Thời gian kết thúc</label>
+            <input name="endtime" type="date" class="form-control">
+        </div>
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Tín chỉ</label>
+            <input name="SubCredits" placeholder="SubCredits" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Thông tin tín chỉ</label>
+            <input name="SubCreditsDetails" placeholder="SubCreditsDetails" type="text" class="form-control">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label>Phòng</label>
+            <input placeholder="Room" name="Room" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+                Tôi cam đoan điều tôi nhập là đúng
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Tạo</button>
 </form>

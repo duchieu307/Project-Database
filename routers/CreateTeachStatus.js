@@ -18,7 +18,7 @@ Router.post('/createteach', (req, res) => {
         await FileController.findTeachObjectID(TeachID, function (err, data) {
             let TeachObjectID = data[0]._id
             FileController.pushTeacherToSubject(SubID, TeachObjectID)
-            res.send(TeachObjectID)
+            res.redirect("http://localhost:5000/allsubject")
         })
     })
 })

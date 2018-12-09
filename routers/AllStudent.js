@@ -22,9 +22,7 @@ Router.get("/allstudent", (req, res) => {
                     <td>
                         <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuUserName}</a>
                     </td>
-                    <td>
-                        <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuEmail}</a>
-                    </td>
+                   
                     <td>
                         <a href="http://localhost:5000/${item.StuStudentID}/info">${item.StuDoB}</a>
                     </td>

@@ -24,19 +24,18 @@
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label>First name</label>
-            <input type="text" class="form-control" placeholder="First name" value="Hiếu" readonly>
+            <input type="text" class="form-control" placeholder="First name" value="{{FirstName}}" readonly>
         </div>
         <div class="col-md-4 mb-3">
             <label>Last name</label>
-            <input type="text" class="form-control" placeholder="Last name" value="Vũ Hoàng Đức " readonly>
+            <input type="text" class="form-control" placeholder="Last name" value="{{LastName}}" readonly>
         </div>
         <div class="col-md-4 mb-3">
             <label> Username </label>
             <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                </div>
-                <input type="text" class="form-control" placeholder="Username" value="duchieu307" aria-describedby="inputGroupPrepend" readonly>
+
+                <input type="text" class="form-control" placeholder="Username" value="{{UserName}}" aria-describedby="inputGroupPrepend"
+                    readonly>
 
             </div>
         </div>
@@ -44,13 +43,13 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label>Ngày tháng năm sinh</label>
-            <input type="date" name="bday" class="form-control" value="1998-07-30" readonly>
+            <input type="date" name="bday" class="form-control" value="1{{DoB}}" readonly>
             <label>Mã số</label>
-            <input type="number" name="bday" class="form-control" value="123456" readonly>
+            <input type="number" name="bday" class="form-control" value="{{ID}}" readonly>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Viện</label>
-                    <input type="String" class="form-control" value="Viện CNTT&TT" placeholder="Class" readonly>
+                    <input type="String" class="form-control" value="{{Intitution}}" placeholder="Class" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Trình độ</label>

@@ -17,7 +17,7 @@ Router.post("/createsubject", (req, res) => {
         let SubCreditsDetails = req.body.SubCreditsDetails
         let StudentsInClass = req.body.StudentsInClass
         FileController.createSub(Room, StartTime, EndTime, SubID, SubName, SubCredits, SubCreditsDetails, StudentsInClass)
-
+        res.redirect("http://localhost:5000/createteach")
     } catch (error) {
         console.log(error)
     }

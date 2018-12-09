@@ -22,22 +22,7 @@ Router.post("/createstudent", (req, res) => {
         let City = req.body.StuCity;
         let Province = req.body.StuProvince;
         let Address = req.body.StuAddress;
-        let NewStudentInfo = {
-            FirstName,
-            LastName,
-            UserName,
-            DoB,
-            StudentID,
-            Class,
-            Level,
-            Avatar,
-            Email,
-            Password,
-            District,
-            City,
-            Province,
-            Address
-        }
+
         FileController.createStu(FirstName,
             LastName,
             UserName,
@@ -52,7 +37,7 @@ Router.post("/createstudent", (req, res) => {
             City,
             Province,
             Address)
-        console.log(NewStudentInfo)
+        res.redirect("http://localhost:5000/allstudent")
     } catch (error) {
         console.log(error)
     }

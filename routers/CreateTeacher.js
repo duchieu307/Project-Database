@@ -23,8 +23,8 @@ Router.post("/createteacher", (req, res) => {
         let TeState = req.body.TeState;
         let TeProvince = req.body.TeProvince;
         let TeAddress = req.body.TeAddress;
-        FileController.createTeacher(TeFirstName, TeLastName, TeUsername, TeBDay, TeID, TeClass, TeLevel, TeIMG, TeTeach, TeEmail, TePassWord, TeCity, TeState, TeProvince, TeAddress)
-
+        FileController.createTeacher(TeFirstName, TeLastName, TeUsername, TeBDay, TeID, TeIntitution, TeLevel, TeIMG, TeTeach, TeEmail, TePassWord, TeCity, TeState, TeProvince, TeAddress)
+        res.redirect("http://localhost:5000/allteacher")
     } catch (error) {
         console.log(error)
     }

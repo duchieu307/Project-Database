@@ -26,27 +26,30 @@ let createSub = (Room, StartTime, Endtime, SubID, SubName, SubCredits, SubCredit
     let newSubjectInfo = {
         Room: Room,
         StartTime: StartTime,
-        Endtime: Endtime,
+        EndTime: Endtime,
         SubID: SubID,
         SubName: SubName,
         SubCredits: SubCredits,
         SubCreditsDetails: SubCreditsDetails,
-        StudentsInClass: StudentsInClass
+        // StudentsInClass: StudentsInClass
     }
     StuSchema.Subject.create(newSubjectInfo)
 }
 
-let createScore = async function (Mid_termScore, Final_termScore, Stu_id, ScoreID) {
+let createScore = async function (Mid_termScore, Final_termScore, Stu_id, ScoreID, SubName, callback) {
     let AverageScore = Mid_termScore * 0.3 + Final_termScore * 0.7;
     let newScore = {
         Mid_termScore: Mid_termScore,
         Final_termScore: Final_termScore,
         Stu_id: Stu_id,
         AverageScore: AverageScore,
-        ScoreID: ScoreID
+        ScoreID: ScoreID,
+        SubName: SubName
 
     }
-    await StuSchema.StudentStudyStatus.create(newScore)
+    await StuSchema.StudentStudyStatus.create(newScore, (err, docs) => {
+        callback(err, null)
+    })
 
 }
 
@@ -57,7 +60,7 @@ const createTeacher = (TeFirstName, TeLastName, TeUserName, TeBDay, TeID, TeInti
         TeUserName: TeUserName,
         TeBDay: TeBDay,
         TeID: TeID,
-        TeIntituiton: TeIntituiton,
+        TeIntitution: TeIntitution,
         TeLevel: TeLevel,
         TeIMG: TeIMG,
         TeTeach: TeTeach,
@@ -360,8 +363,20 @@ let findSubject = async function (SubID, callback) {
     }
 }
 
+let findAllSubject = (callback) => {
+    StuSchema.Subject.find({}, (err, docs) => {
+        callback(err, docs)
+    })
+}
+
 let findClass = (ClaName, callback) => {
     StuSchema.Class.find({ ClaName: ClaName }, (err, docs) => {
+        callback(err, docs)
+    })
+}
+
+let findStudentScore = (Stu_id, callback) => {
+    StuSchema.StudentStudyStatus.find({ Stu_id: Stu_id }, (err, docs) => {
         callback(err, docs)
     })
 }
@@ -401,5 +416,7 @@ module.exports = {
     pushSubjectToIntitution,
     pushStudentToClass,
     findClass,
-    pushClasstoEdu
+    pushClasstoEdu,
+    findAllSubject,
+    findStudentScore
 }

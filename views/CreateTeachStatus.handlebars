@@ -1,8 +1,30 @@
-<h1>TeachStatus</h1>
+<h1>Phân công giáo viên giảng dạy</h1>
 
-<form method="POST">
-    <input name="TeRoom" placeholder="room" type="text" id="">
-    <input type="text" placeholder="TeID" name="TeID" id="">
-    <input type="text" placeholder="SubID" name="SubID" id="">
-    <button type="submit">Gui</button>
+
+
+<form method="post">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Phòng giáo viên</label>
+            <input name="TeRoom" placeholder="TeRoom" type="text" id="" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Mã số giáo viên</label>
+            <input class="form-control" type="text" placeholder="TeID" name="TeID" id="">
+        </div>
+
+        <div class="form-group col-md-4">
+            <label>Mã môn học</label>
+            <input class="form-control" type="text" placeholder="SubID" name="SubID" id="">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+                Tôi cam đoan điều tôi nhập là đúng
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Tạo</button>
 </form>

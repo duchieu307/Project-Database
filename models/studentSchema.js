@@ -31,8 +31,8 @@ const StudentStudyStatusSchema = {
     Final_termScore: { type: Number, require: true },
     AverageScore: { type: Number, require: true },
     ScoreID: { type: String, require: true },
-    Stu_id: { type: mongoose.Schema.Types.ObjectId, ref: "StudentInfo", require: true }
-
+    Stu_id: { type: mongoose.Schema.Types.ObjectId, ref: "StudentInfo", require: true },
+    SubName: { type: String, require: true }
 
     //link den cai nao thi phai chung kieu du lieu toi cai minh link
 }
@@ -40,13 +40,13 @@ const StudentStudyStatusSchema = {
 
 const SubjectSchema = {
     Room: { type: String, require: true },
-    StartTime: { type: Date, require: true },
-    EndTime: { type: Date, require: true },
+    StartTime: { type: String, require: true },
+    EndTime: { type: String, require: true },
     SubID: { type: String, require: true },
     SubName: { type: String, require: true },
     SubCredits: { type: String, require: true },
     SubCreditsDetails: { type: String, require: true },
-    StudentsInClass: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus" }],
+    StudentsInClass: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus", default: [] }],
     TeacherInClass: { type: mongoose.Schema.Types.ObjectId, ref: "TeachStatusSchema" }
     // SSSID: { type: mongoose.Schema.Types.ObjectId, ref: "StudentStudyStatus", require: true }
 }
@@ -84,7 +84,7 @@ const IntitutionSchema = {
     InOffice: { type: String, require: true },
     InEmail: { type: String, require: true },
     InPhone: { type: Number, require: true },
-    TeacherInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "TeBelongs" }],
+    TeacherInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "TeacherSchema" }],
     SubjectInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "SubjectSchema" }],
     EduInIntitution: [{ type: mongoose.Schema.Types.ObjectId, ref: "EduBelongs" }]
 }
